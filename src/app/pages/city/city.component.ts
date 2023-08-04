@@ -27,6 +27,10 @@ export class CityComponent implements OnInit
   addToFavorite(city?:string)
   {
     console.log(city)
-    return this.http.post<IFavorites>(this.FavoritesURL, {id:1, cityName: city}).subscribe()
+    return this.http.post<IFavorites>(this.FavoritesURL,
+      {
+        userId: JSON.parse(localStorage.getItem("accessData") as string).user.id,
+        cityName: city
+      }).subscribe()
   }
 }
