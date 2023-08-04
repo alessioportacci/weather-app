@@ -1,5 +1,27 @@
 {
-  "users": [],
+  "users": [
+    {
+      "email": "alessio@portacci.com",
+      "password": "$2a$10$cKbfbzpw7tZJlmpqTQc8YOkOwm5bQTpn5zxlc4OQ4bo0K1/uoHCu.",
+      "nome": "Alessio",
+      "cognome": "Portacci",
+      "id": 1
+    },
+    {
+      "email": "alessio@portacci",
+      "password": "$2a$10$PdPF0.r9ZNy6/LkC28JaUO7dngLv4IkdMQa04RfC.TkPp94lKBpX2",
+      "nome": "Alessio",
+      "cognome": "Portacci",
+      "id": 2
+    },
+    {
+      "email": "ciao@a",
+      "password": "$2a$10$Sj8JZbeiQBWqWx35JEUQPuRZoKrqSXVRBW5OeLu70z7SzAf6ZRupa",
+      "nome": "CIccio",
+      "cognome": "bello",
+      "id": 3
+    }
+  ],
   "favorites": [
     {
       "id": 1,

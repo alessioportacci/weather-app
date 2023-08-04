@@ -1,0 +1,49 @@
+<form
+  [formGroup]="formRegister"
+  (submit)="onSubmit()"
+  style="display: flex; flex-direction: column; padding: 5x"
+>
+  <label for="nome">Nome</label>
+  <input type="text" name="name" formControlName="nome" />
+  <p
+    *ngIf="
+      !formRegister.get('nome')?.valid && formRegister.get('nome')?.touched
+    "
+  >
+    Inserire un nome di almeno tre lettere
+  </p>
+
+  <label for="cognome">Cognome</label>
+  <input type="text" name="cognome" formControlName="cognome" />
+  <p
+    *ngIf="
+      !formRegister.get('cognome')?.valid &&
+      formRegister.get('cognome')?.touched
+    "
+  >
+    Inserire un cognome di almeno tre lettere
+  </p>
+
+  <label for="cognome">Email</label>
+  <input type="text" name="email" formControlName="email" />
+  <p
+    *ngIf="
+      !formRegister.get('email')?.valid && formRegister.get('email')?.touched
+    "
+  >
+    Inserire un'email valida
+  </p>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" formControlName="password" />
+  <p
+    *ngIf="
+      !formRegister.get('password')?.valid &&
+      formRegister.get('password')?.touched
+    "
+  >
+    Inserire una passowrd di almeno cinque lettere
+  </p>
+
+  <button type="submit" [disabled]="!formRegister.valid">Iscriviti</button>
+</form>

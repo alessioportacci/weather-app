@@ -1,3 +1,18 @@
+<div
+  style="
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    margin: 10px;
+    background-color: rgb(186, 252, 187);
+  "
+>
+  <a routerLink="" style="cursor: pointer">Home</a> <br />
+  <a routerLink="register" style="cursor: pointer">Register</a> <br />
+  <a routerLink="login" style="cursor: pointer">Login </a> <br />
+  <a routerLink="favourites" style="cursor: pointer">Favourites</a> <br />
+</div>
+
 <form
   [formGroup]="searchCityForm"
   (submit)="searchCity()"

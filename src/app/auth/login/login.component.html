@@ -1,0 +1,23 @@
+<form
+  [formGroup]="formLogin"
+  (submit)="onSubmit()"
+  style="display: flex; flex-direction: column; padding: 5x"
+>
+  <label for="cognome">Email</label>
+  <input type="text" name="email" formControlName="email" />
+  <p *ngIf="!formLogin.get('email')?.valid && formLogin.get('email')?.touched">
+    Inserire un'email valida
+  </p>
+
+  <label for="password">Password</label>
+  <input type="password" name="password" formControlName="password" />
+  <p
+    *ngIf="
+      !formLogin.get('password')?.valid && formLogin.get('password')?.touched
+    "
+  >
+    Inserire una passowrd di almeno cinque lettere
+  </p>
+
+  <button type="submit" [disabled]="!formLogin.valid">Accedi</button>
+</form>
