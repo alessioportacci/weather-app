@@ -1,0 +1,25 @@
+<form
+  [formGroup]="searchCityForm"
+  (submit)="searchCity()"
+  style="display: flex; flex-direction: column; padding: 5x"
+>
+  <input
+    type="text"
+    name="name"
+    formControlName="nome"
+    placeholder="Inserisci una città"
+  />
+  <p
+    *ngIf="
+      !searchCityForm.get('nome')?.valid && searchCityForm.get('nome')?.touched
+    "
+  >
+    Inserire una città di almeno tre lettere
+  </p>
+
+  <button type="submit" [disabled]="!searchCityForm.valid" routerLink="city">
+    Cerca
+  </button>
+</form>
+
+<router-outlet></router-outlet>

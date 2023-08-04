@@ -1,0 +1,11 @@
+<p>Città: {{ weatherSrv.currentCity?.name }}</p>
+<p>Paese: {{ weatherSrv.currentCity?.country }}</p>
+<p>Meteo: {{ weatherSrv.currentCity?.weather }}</p>
+<p>Temperatura: {{ weatherSrv.currentCity?.temp }}</p>
+<p>Massima: {{ weatherSrv.currentCity?.maxTemp }}</p>
+<p>Minima: {{ weatherSrv.currentCity?.minTemp }}</p>
+<p>Vento: {{ weatherSrv.currentCity?.windSpeed }}</p>
+
+<button (click)="addToFavorite(weatherSrv.currentCity?.name)">
+  Aggiungi ai preferiti ⭐
+</button>
