@@ -1,0 +1,31 @@
+.mini-meteo
+{
+  margin:-15px
+}
+
+.text-meteo
+{
+  text-transform:capitalize;
+}
+
+.card-meteo
+{
+  min-width: 416px;
+  max-width: 780px;
+  margin:10px;
+  box-shadow: 5px 5px 35px -14px #000000;
+}
+
+.meteo-box
+{
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 3px;
+  box-shadow: 5px 5px 35px -14px #000000;
+}
+
+.meteo-box:hover
+{
+  scale: 1.04;
+}

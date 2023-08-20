@@ -1,11 +1,137 @@
-<p>Città: {{ weatherSrv.currentCity?.name }}</p>
-<p>Paese: {{ weatherSrv.currentCity?.country }}</p>
-<p>Meteo: {{ weatherSrv.currentCity?.weather }}</p>
-<p>Temperatura: {{ weatherSrv.currentCity?.temp }}</p>
-<p>Massima: {{ weatherSrv.currentCity?.maxTemp }}</p>
-<p>Minima: {{ weatherSrv.currentCity?.minTemp }}</p>
-<p>Vento: {{ weatherSrv.currentCity?.windSpeed }}</p>
+<div class="card card-meteo" [ngStyle]="weatherSrv.currentCity.color">
+  <div class="card-body">
+    <!-- Paese -->
+    <div class="meteo-box">
+      <h1 class="card-title mb-0">{{ weatherSrv.currentCity.name }}</h1>
+      <h2 class="">{{ weatherSrv.currentCity.country }}</h2>
+    </div>
 
-<button (click)="addToFavorite(weatherSrv.currentCity?.name)">
+    <hr />
+
+    <!-- Parte alta -->
+    <div class="row row-cols-3 justify-content-around align-items-center">
+      <!-- Blocco di sinistra -->
+      <div class="meteo-box">
+        <div class="row row-cols-1 justify-content-center align-items-center">
+          <div>
+            <p class="text-meteo text-truncate text-center fs-3 m-0">
+              {{ weatherSrv.currentCity.list[0].weather[0].description }}
+            </p>
+          </div>
+          <div class="text-center">
+            <img
+              class="img-fluid mini-meteo"
+              src="https://openweathermap.org/img/wn/{{
+                weatherSrv.currentCity.list[0].weather[0].icon
+              }}@4x.png"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Blocco di destra -->
+      <div class="meteo-box">
+        <!-- Temperatura -->
+        <h3 class="fs-1 fw-bold text-center">
+          {{ weatherSrv.currentCity.list[0].main.temp }} °C
+        </h3>
+
+        <!-- Temperatura massima -->
+        <div
+          class="row row-cols-2 justify-content-center align-items-center"
+          title="Temperatura massima"
+        >
+          <div class="text-end">
+            <i class="bi bi-arrow-up-right"> </i>
+          </div>
+          <div class="fs-6 fw-bold text-left">
+            <p class="m-0 p-0">
+              {{ weatherSrv.currentCity.list[0].main.temp_max }} °C
+            </p>
+          </div>
+        </div>
+
+        <!-- Temperatura minima -->
+        <div
+          class="row row-cols-2 justify-content-center align-items-center"
+          title="Temperatura minima"
+        >
+          <div class="text-end">
+            <i class="bi bi-arrow-down-right"> </i>
+          </div>
+          <div class="fs-6 fw-bold text-left">
+            <p class="m-0 p-0">
+              {{ weatherSrv.currentCity.list[0].main.temp_min }} °C
+            </p>
+          </div>
+        </div>
+
+        <!-- Umidita' -->
+        <div
+          class="row row-cols-2 justify-content-center align-items-center"
+          title="Umidità"
+        >
+          <div class="text-end">
+            <i class="bi bi-cloud-fog2"></i>
+          </div>
+          <div class="fs-6 fw-bold text-left">
+            <p class="m-0 p-0">
+              {{ weatherSrv.currentCity.list[0].main.humidity }} %
+            </p>
+          </div>
+        </div>
+
+        <!-- Vento -->
+        <div
+          class="row row-cols-2 justify-content-center align-items-center"
+          title="Velcità vento"
+        >
+          <div class="text-end">
+            <i class="bi bi-wind"></i>
+          </div>
+          <div class="fs-6 fw-bold text-left">
+            <p class="m-0 p-0">
+              {{ weatherSrv.currentCity.list[0].wind.speed }} km/h
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <!-- Altri orari | slice : 1-->
+    <div
+      class="text-center row row-cols-1 row-cols-sm-2 row-cols-md-4 justify-content-center"
+    >
+      <div
+        class="meteo-box my-4"
+        *ngFor="let weather of weatherSrv.currentCity?.list"
+      >
+        <div>
+          <i class="bi bi-clock"></i>
+          <p class="m-0 d-inline">
+            &nbsp;{{ weather.dt_txt.substring(11, 16) }}
+          </p>
+        </div>
+        <img
+          class="mini-meteo"
+          src="https://openweathermap.org/img/wn/{{
+            weather.weather[0].icon
+          }}@2x.png"
+        />
+        <p class="m-0">{{ weather.main.temp }} °C</p>
+        <p class="text-meteo text-truncate m-0">
+          {{ weather.weather[0].description }}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<button
+  class="btn btn-primary"
+  (click)="addToFavorite(weatherSrv.currentCity.name)"
+>
   Aggiungi ai preferiti ⭐
 </button>

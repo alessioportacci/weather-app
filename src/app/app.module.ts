@@ -11,7 +11,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CityComponent } from './pages/city/city.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FavouritesComponent } from './pages/favourites/favourites.component';
-
+//Bootstrap
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { Conditional } from '@angular/compiler';
 
 
 @NgModule({
@@ -28,7 +32,11 @@ import { FavouritesComponent } from './pages/favourites/favourites.component';
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    //BootStrap
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

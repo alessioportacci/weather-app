@@ -29,6 +29,6 @@ export class AppComponent implements OnInit{
 
   searchCity()
   {
-    this.weatherSrv.getWheater(this.searchCityForm.get('nome')?.value).subscribe()
+    this.weatherSrv.getWeather(this.searchCityForm.get('nome')?.value).subscribe()
   }
 }
